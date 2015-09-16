@@ -10,12 +10,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-
 import com.androititlan.gdg.android_design_support_library.R;
 import com.androititlan.gdg.android_design_support_library.app.ui.adapter.FragmentPagerExample;
 
+import butterknife.Bind;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 
 /**
  * Created by Jhordan on 02/06/15.
@@ -23,25 +22,22 @@ import butterknife.InjectView;
 public class FragmentThree extends FragmentBase {
 
 
-    public static FragmentThree getInstance(){
-        FragmentThree fragmentThree = new FragmentThree();
-        Bundle extraArguments = new Bundle();
-        fragmentThree.setArguments(extraArguments);
-        return fragmentThree;
+    public static FragmentThree getInstance() {
+        return new FragmentThree();
     }
 
-    @InjectView(R.id.viewpager) ViewPager viewPager;
-    @InjectView(R.id.tabs) TabLayout tabLayout;
-    @InjectView(R.id.fab) FloatingActionButton floatingActionButton ;
+    @Bind(R.id.viewpager) ViewPager viewPager;
+    @Bind(R.id.tabs) TabLayout tabLayout;
+    @Bind(R.id.fab) FloatingActionButton floatingActionButton;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_three, container, false);
         settingsToolbar(rootView);
-        ButterKnife.inject(this, rootView);
+        ButterKnife.bind(this, rootView);
 
-        if(viewPager != null){
+        if (viewPager != null) {
             setUpViewPager(viewPager);
             tabLayout.setupWithViewPager(viewPager);
         }
@@ -57,18 +53,20 @@ public class FragmentThree extends FragmentBase {
             @Override
             public void onClick(View view) {
 
-                Snackbar.make(view, "Google Developers Groups - Snackbar", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+                Snackbar.make(view, "Here's a Snackbar", Snackbar.LENGTH_LONG).setAction("action", null).show();
 
             }
         });
+
+
     }
 
-    private void setUpViewPager(ViewPager viewPager){
+    private void setUpViewPager(ViewPager viewPager) {
 
         FragmentPagerExample fragmentPagerExample = new FragmentPagerExample(getChildFragmentManager());
-        fragmentPagerExample.addFragment(FragmentListExample.getInstance(),"GDE LATAM");
-        fragmentPagerExample.addFragment(FragmentExampleOne.getInstance(),"Components");
-        fragmentPagerExample.addFragment(FragmentExampleTwo.getInstance(),"LM Scrolls");
+        fragmentPagerExample.addFragment(FragmentListExample.getInstance(), "GDE LATAM");
+        fragmentPagerExample.addFragment(FragmentExampleOne.getInstance(), "Components");
+        fragmentPagerExample.addFragment(FragmentExampleTwo.getInstance(), "LM Scrolls");
         viewPager.setAdapter(fragmentPagerExample);
 
     }

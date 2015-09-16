@@ -11,8 +11,8 @@ import android.widget.Toast;
 
 import com.androititlan.gdg.android_design_support_library.R;
 
+import butterknife.Bind;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 import butterknife.OnClick;
 
 /**
@@ -21,31 +21,29 @@ import butterknife.OnClick;
 public class FragmentTwo extends FragmentBase {
 
     public static FragmentTwo getInstance() {
-        FragmentTwo fragmentTwo = new FragmentTwo();
-        Bundle extraArguments = new Bundle();
-        fragmentTwo.setArguments(extraArguments);
-        return fragmentTwo;
+        return new FragmentTwo();
     }
 
-    @InjectView(R.id.txt_input_layout_correo) TextInputLayout textInputLayoutCorreo;
-    @InjectView(R.id.txt_input_layout_community) TextInputLayout textInputLayoutComunnity;
-    @InjectView(R.id.edit_txt_mail) AppCompatEditText editMail;
-    @InjectView(R.id.edit_txt_community) AppCompatEditText editCommunity;
+    @Bind(R.id.txt_input_layout_correo) TextInputLayout textInputLayoutCorreo;
+    @Bind(R.id.txt_input_layout_community) TextInputLayout textInputLayoutComunnity;
+    @Bind(R.id.edit_txt_mail) AppCompatEditText editMail;
+    @Bind(R.id.edit_txt_community) AppCompatEditText editCommunity;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_two, container, false);
-        ButterKnife.inject(this, rootView);
+        ButterKnife.bind(this, rootView);
         settingsToolbar(rootView);
         return rootView;
     }
 
     @OnClick(R.id.button) void pushMe() {
-        validation();
+        simpleValidation();
     }
 
-    public void validation(){
+
+    public void simpleValidation(){
 
         if(editMail.getText().toString().isEmpty())
             textInputLayoutCorreo.setError("Campo no debe ser vacio");
@@ -63,6 +61,7 @@ public class FragmentTwo extends FragmentBase {
 
 
     }
+
 
     public boolean validateMail(String mail) {
         return android.util.Patterns.EMAIL_ADDRESS.matcher(mail).matches();

@@ -14,10 +14,7 @@ import com.androititlan.gdg.android_design_support_library.R;
 public class FragmentOne extends FragmentBase {
 
     public static FragmentOne getInstance() {
-        FragmentOne fragmentOne = new FragmentOne();
-        Bundle extraArguments = new Bundle();
-        fragmentOne.setArguments(extraArguments);
-        return fragmentOne;
+        return new FragmentOne();
     }
 
     @Nullable

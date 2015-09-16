@@ -65,6 +65,8 @@ public class RecyclerViewAdapterExample
        holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                //TODO MOVE THIS CODE TO A DELEGATE, THIS CAST IS EVIL
                 Context context = v.getContext();
                  Intent intent = new Intent(context,DetailActivity.class);
                  intent.putExtra(Config.EXTRA_NAME, developer.getName());

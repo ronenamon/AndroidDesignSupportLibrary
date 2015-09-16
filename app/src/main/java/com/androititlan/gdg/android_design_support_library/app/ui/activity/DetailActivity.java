@@ -84,11 +84,10 @@ public class DetailActivity extends AppCompatActivity {
         recyclerView.setAdapter(new RecyclerViewAdapterExample(devs()));
     }
 
-    // Generamos personas y repetimos para tener una lista grande
+    // Create element List
     private List<Developer> devs() {
 
-        String[] nameExpert = {"Antonio Guzmán", "Enrique Diaz", "Cesar Anton", "Adrian Catalan",
-                "Matias Molinas", "David Cifuentes"};
+        String[] nameExpert = {"Antonio Guzmán", "Enrique Diaz", "Cesar Anton", "Adrian Catalan", "Matias Molinas", "David Cifuentes"};
 
         int[] photoExpert = {R.drawable.tony, R.drawable.kikillo, R.drawable.cesar, R.drawable.adrian, R.drawable.mati, R.drawable.david};
 

@@ -5,8 +5,8 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
-            android:icon="@drawable/ic_action_add"
             android:checked="true"
+            android:icon="@drawable/ic_action_add"
             android:title="Navigation View" />
         <item
             android:id="@+id/nav_messages"
@@ -17,8 +17,6 @@
             android:icon="@drawable/ic_action_add"
             android:title="Tabs and Layouts" />
 
-
-
     </group>
 
     <item
@@ -27,10 +25,10 @@
         <menu>
             <item
                 android:id="@+id/navigation_sub_item_1"
-                android:title="Configuración"/>
+                android:title="Configuración" />
             <item
                 android:id="@+id/navigation_sub_item_2"
-                android:title="Ayuda y Comentarios"/>
+                android:title="Ayuda y Comentarios" />
         </menu>
     </item>
 
