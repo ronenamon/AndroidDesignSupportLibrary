@@ -24,4 +24,4 @@ compile 'com.android.support:design:22.2.0'
 
 
 # Demo
-![](https://aa1a5cf3c6e3569b77b29843c3f5b6ba8b369090.googledrive.com/host/0B9hNKr5AY4xXTXktOS11VlBaemM/Telecine_2015-09-15-21-31-56.gif)
+![](./art/Telecine_2015-09-15-21-31-56.gif)
